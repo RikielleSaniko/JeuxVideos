@@ -2,6 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://dn2ir0xnhk6k5" path="res://assets/sprites/knight.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://bj1d2pskcd3ep" path="res://scripts/player.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://dqsvww6jwd28f" path="res://scripts/state_machine.gd" id="3_qlg0r"]
+[ext_resource type="Script" uid="uid://u5ab8q65wxdb" path="res://scripts/player_idle.gd" id="4_tuyoq"]
+[ext_resource type="Script" uid="uid://b0fa5a1ik47e0" path="res://scripts/player_run.gd" id="5_fjrip"]
+[ext_resource type="Script" uid="uid://c62soef31nef5" path="res://scripts/player_jump.gd" id="6_tuyoq"]
+[ext_resource type="Script" uid="uid://b164iql86y7um" path="res://scripts/player_roll.gd" id="7_fjrip"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
 atlas = ExtResource("1_4flbx")
@@ -161,7 +166,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"roll",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -228,8 +233,32 @@ position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_2hs0m")
 animation = &"roll"
 autoplay = "idle"
-frame_progress = 0.22650008
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1337644480]
 position = Vector2(-0.5, -4.25)
 shape = SubResource("RectangleShape2D_4flbx")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1624812176 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_qlg0r")
+initial_state = NodePath("PlayerIdle")
+metadata/_custom_type_script = "uid://dqsvww6jwd28f"
+
+[node name="PlayerIdle" type="Node" parent="StateMachine" unique_id=928056299 node_paths=PackedStringArray("player")]
+script = ExtResource("4_tuyoq")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://u5ab8q65wxdb"
+
+[node name="PlayerRun" type="Node" parent="StateMachine" unique_id=1842670442 node_paths=PackedStringArray("player")]
+script = ExtResource("5_fjrip")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://b0fa5a1ik47e0"
+
+[node name="PlayerJump" type="Node" parent="StateMachine" unique_id=1091984074 node_paths=PackedStringArray("player")]
+script = ExtResource("6_tuyoq")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://c62soef31nef5"
+
+[node name="PlayerRoll" type="Node" parent="StateMachine" unique_id=2147045072 node_paths=PackedStringArray("player")]
+script = ExtResource("7_fjrip")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://b164iql86y7um"

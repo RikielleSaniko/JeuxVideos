@@ -175,7 +175,7 @@ script = ExtResource("1_g2els")
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_j6082")
 animation = &"walk_right"
-frame_progress = 0.32682577
+frame_progress = 0.9148921
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1831985376]
 position = Vector2(0, 52)

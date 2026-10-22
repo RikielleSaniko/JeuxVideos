@@ -173,6 +173,7 @@ autoscroll = Vector2(5, 0)
 repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Cloud" unique_id=985769295]
+position = Vector2(0, -25)
 texture = ExtResource("5_7r4gi")
 centered = false
 

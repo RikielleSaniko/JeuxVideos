@@ -3,6 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://co806t5p15df4" path="res://scenes/player.tscn" id="1_nnsk1"]
 [ext_resource type="Texture2D" uid="uid://c0gkr0u00vmyq" path="res://assets/sprites/world_tileset.png" id="2_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://ti70ytyp8dt6" path="res://plateforme_mobile.tscn" id="3_4wyf3"]
+[ext_resource type="Texture2D" uid="uid://8klw7bg4c4h6" path="res://assets/sprites/Background/Background-1.png" id="4_4mrxx"]
+[ext_resource type="Texture2D" uid="uid://d0fiqkx6chrgf" path="res://assets/sprites/Background/Background-3.png" id="5_7r4gi"]
+[ext_resource type="Texture2D" uid="uid://sho3bf37iysa" path="res://assets/sprites/Background/Background-2.png" id="6_w7kh3"]
+[ext_resource type="Texture2D" uid="uid://dw2q0g0kinn7v" path="res://assets/sprites/Background/Background-4.png" id="7_e3hyu"]
+[ext_resource type="Texture2D" uid="uid://c3mevdknnf88q" path="res://assets/sprites/Background/Background-4b.png" id="8_q5onr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3sb7"]
 size = Vector2(600, 18)
@@ -152,10 +157,62 @@ sources/0 = SubResource("TileSetAtlasSource_4wyf3")
 
 [node name="World" type="Node2D" unique_id=1491971128]
 
+[node name="Sky" type="Parallax2D" parent="." unique_id=1796001322]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(336, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Sky" unique_id=643961111]
+texture = ExtResource("4_4mrxx")
+centered = false
+
+[node name="Cloud" type="Parallax2D" parent="." unique_id=1926390018]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(336, 0)
+autoscroll = Vector2(5, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Cloud" unique_id=985769295]
+texture = ExtResource("5_7r4gi")
+centered = false
+
+[node name="Sea" type="Parallax2D" parent="." unique_id=2112443418]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(336, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Sea" unique_id=1516175558]
+texture = ExtResource("6_w7kh3")
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="Sea/Sprite2D" unique_id=949658250]
+offset_top = 192.0
+offset_right = 336.0
+offset_bottom = 492.0
+color = Color(0.16862746, 0.6431373, 0.654902, 1)
+
+[node name="SingleIsland" type="Parallax2D" parent="." unique_id=1452815802]
+scroll_scale = Vector2(0.3, 0.3)
+repeat_size = Vector2(900, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="SingleIsland" unique_id=1288867532]
+texture = ExtResource("8_q5onr")
+centered = false
+
+[node name="Island" type="Parallax2D" parent="." unique_id=1222750685]
+scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(336, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Island" unique_id=2141249623]
+texture = ExtResource("7_e3hyu")
+centered = false
+
 [node name="Player" parent="." unique_id=289173108 instance=ExtResource("1_nnsk1")]
 position = Vector2(-273, 36)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1323723727]
+[node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1323723727]
 position = Vector2(6, 3)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1129034229]

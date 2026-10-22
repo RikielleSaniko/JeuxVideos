@@ -262,3 +262,5 @@ metadata/_custom_type_script = "uid://c62soef31nef5"
 script = ExtResource("7_fjrip")
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://b164iql86y7um"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=325315866]

@@ -1,3 +1,187 @@
 [gd_scene format=3 uid="uid://b1vk0r2dse3dl"]
 
+[ext_resource type="Texture2D" uid="uid://krh3lj23xlx" path="res://assets/sprites/salle_fond.png" id="1_tdg2f"]
+[ext_resource type="PackedScene" uid="uid://cjbxaxs8lj7o1" path="res://scenes/player.tscn" id="2_iw0ck"]
+[ext_resource type="Texture2D" uid="uid://b7257f8ia82ik" path="res://assets/sprites/chaise_face_01.png" id="3_bp8vj"]
+[ext_resource type="Texture2D" uid="uid://dcybgcx5fjvvp" path="res://assets/sprites/chaise_dos_03.png" id="4_rwm3f"]
+[ext_resource type="Texture2D" uid="uid://c1mc8dsek3kme" path="res://assets/sprites/chaise_cote_droit_02.png" id="5_qujyy"]
+[ext_resource type="Texture2D" uid="uid://d3a8r6yo4jdq2" path="res://assets/sprites/table_carree.png" id="5_u1ary"]
+[ext_resource type="Texture2D" uid="uid://xvl60jqw7knl" path="res://assets/sprites/chaise_cote_gauche_01.png" id="6_0duca"]
+[ext_resource type="Texture2D" uid="uid://bs66y6e14jc12" path="res://assets/sprites/beignets_miel_3.png" id="7_1sijj"]
+[ext_resource type="Texture2D" uid="uid://t8nieiviaxp5" path="res://assets/sprites/jus_bissap_2.png" id="8_u1ary"]
+[ext_resource type="Texture2D" uid="uid://cht4s55ujpwnv" path="res://assets/sprites/jus_mangue_1.png" id="9_qujyy"]
+[ext_resource type="Texture2D" uid="uid://cq7nwf17lggm5" path="res://assets/sprites/couscous_legumes_3.png" id="9_u1ary"]
+
 [node name="Restaurant" type="Node2D" unique_id=109098720]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=929448636]
+texture = ExtResource("1_tdg2f")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=1147662208]
+
+[node name="wall_top" type="CollisionPolygon2D" parent="Walls" unique_id=839315397]
+position = Vector2(3, 8)
+build_mode = 1
+polygon = PackedVector2Array(64, 831, 107, 48, 1440, 50, 1465, 834, 1348.8938, 835.0851, 930, 839, 943, 989, 624, 982, 604, 849, 76, 844)
+
+[node name="Counter" type="CollisionPolygon2D" parent="Walls" unique_id=1056730338]
+polygon = PackedVector2Array(353, 229, 1108, 234, 1101, 296, 365, 294)
+
+[node name="wall_bottom" type="CollisionPolygon2D" parent="Walls" unique_id=501875204]
+build_mode = 1
+polygon = PackedVector2Array(1342, 816, 1319, 196, 1111, 176, 1113, 239, 355, 231, 358, 168, 322, 161, 322, 224, 202, 206, 152, 231, 154, 309, 194, 329, 194, 402, 144, 409, 144, 673, 222, 706, 209, 814, 66, 836, 245, 819, 611, 824, 614, 972, 940, 982, 932, 831)
+
+[node name="Furniture" type="Node2D" parent="." unique_id=2096423342]
+
+[node name="Table1" type="StaticBody2D" parent="Furniture" unique_id=289659102]
+position = Vector2(3, 0)
+scale = Vector2(0.6, 0.6)
+
+[node name="chair1" type="Sprite2D" parent="Furniture/Table1" unique_id=1059671159]
+position = Vector2(1971.6666, 646.6666)
+scale = Vector2(1, 1.004115)
+texture = ExtResource("3_bp8vj")
+
+[node name="chair2" type="Sprite2D" parent="Furniture/Table1" unique_id=521698790]
+position = Vector2(1978.3333, 896.6666)
+texture = ExtResource("4_rwm3f")
+
+[node name="RectangleTable" type="Sprite2D" parent="Furniture/Table1" unique_id=503856394]
+position = Vector2(1981.6666, 771.6666)
+texture = ExtResource("5_u1ary")
+
+[node name="CollisionTable1" type="CollisionPolygon2D" parent="Furniture/Table1" unique_id=408432801]
+position = Vector2(-5, 0)
+build_mode = 1
+polygon = PackedVector2Array(1926.6666, 563.3333, 2021.6666, 558.3333, 2026.6666, 580, 2090, 688.3333, 2093.3333, 826.6666, 2026.6666, 951.6666, 1946.6666, 960, 1893.3333, 843.3333, 1885, 683.3333)
+
+[node name="Table2" type="StaticBody2D" parent="Furniture" unique_id=767253900]
+scale = Vector2(0.6, 0.6)
+
+[node name="chair1" type="Sprite2D" parent="Furniture/Table2" unique_id=1280317269]
+position = Vector2(460, 593.3333)
+texture = ExtResource("3_bp8vj")
+
+[node name="chair2" type="Sprite2D" parent="Furniture/Table2" unique_id=156969491]
+position = Vector2(460, 851.6666)
+texture = ExtResource("4_rwm3f")
+
+[node name="SquareTable" type="Sprite2D" parent="Furniture/Table2" unique_id=1991375358]
+position = Vector2(461.66666, 716.6666)
+texture = ExtResource("5_u1ary")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Furniture/Table2" unique_id=2036411011]
+position = Vector2(5, 0)
+build_mode = 1
+polygon = PackedVector2Array(393.3333, 503.3333, 515, 513.3333, 536.6666, 630, 565, 780, 493.3333, 901.6666, 418.3333, 910, 368.3333, 771.6666, 356.66666, 613.3333, 356.66666, 613.3333)
+
+[node name="Table3" type="StaticBody2D" parent="Furniture" unique_id=1901150045]
+
+[node name="chair1" type="Sprite2D" parent="Furniture/Table3" unique_id=1779044931]
+position = Vector2(394, 593)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_bp8vj")
+
+[node name="chair2" type="Sprite2D" parent="Furniture/Table3" unique_id=530479762]
+position = Vector2(401, 750)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_rwm3f")
+
+[node name="chair3" type="Sprite2D" parent="Furniture/Table3" unique_id=1648583464]
+position = Vector2(479.0001, 664)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_qujyy")
+
+[node name="chair4" type="Sprite2D" parent="Furniture/Table3" unique_id=541601963]
+position = Vector2(322, 654)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_0duca")
+
+[node name="SquareTable" type="Sprite2D" parent="Furniture/Table3" unique_id=351167853]
+position = Vector2(397, 666)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_u1ary")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/Table3" unique_id=885496068]
+build_mode = 1
+polygon = PackedVector2Array(360, 536, 427, 533, 443, 611, 450, 641, 485, 644, 505, 606, 508, 702, 455, 689, 425, 785, 382, 790, 342, 692, 340, 699, 307, 667, 297, 699, 292, 604, 340, 639)
+
+[node name="Table4" type="StaticBody2D" parent="Furniture" unique_id=385847140]
+position = Vector2(-62, -1)
+
+[node name="chair1" type="Sprite2D" parent="Furniture/Table4" unique_id=1027306167]
+position = Vector2(820, 423)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_bp8vj")
+
+[node name="chair2" type="Sprite2D" parent="Furniture/Table4" unique_id=916799984]
+position = Vector2(825, 576)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_rwm3f")
+
+[node name="chair3" type="Sprite2D" parent="Furniture/Table4" unique_id=1712137340]
+position = Vector2(740, 493.99997)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_0duca")
+
+[node name="chair4" type="Sprite2D" parent="Furniture/Table4" unique_id=1586625415]
+position = Vector2(900, 496)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_qujyy")
+
+[node name="SquareTable" type="Sprite2D" parent="Furniture/Table4" unique_id=1937421740]
+position = Vector2(824, 493.00003)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_u1ary")
+
+[node name="CollisionTable4" type="CollisionPolygon2D" parent="Furniture/Table4" unique_id=1948042341]
+build_mode = 1
+polygon = PackedVector2Array(788, 371, 849, 374, 874, 442, 886, 472, 926, 447, 926, 537, 881, 512, 851, 607, 803, 615, 781, 537, 758, 509, 723, 507, 713, 540, 708, 442, 766, 479)
+
+[node name="Table5" type="StaticBody2D" parent="Furniture" unique_id=1619432393]
+
+[node name="chair1" type="Sprite2D" parent="Furniture/Table5" unique_id=325593076]
+position = Vector2(1007.00006, 669)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_0duca")
+
+[node name="chair2" type="Sprite2D" parent="Furniture/Table5" unique_id=1694008118]
+visible = false
+position = Vector2(1169, 677)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_qujyy")
+
+[node name="SqaureTable" type="Sprite2D" parent="Furniture/Table5" unique_id=43586134]
+position = Vector2(1088, 682)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_u1ary")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/Table5" unique_id=475643391]
+build_mode = 1
+polygon = PackedVector2Array(1038, 616, 1136, 621, 1146, 654, 1178, 654, 1198, 626, 1196, 727, 1173, 694, 1143, 689, 1136, 734, 1048, 732, 1020, 687, 987, 687, 980, 707, 975, 624, 992, 644, 1033, 654)
+
+[node name="Meals" type="Node" parent="." unique_id=1887851508]
+
+[node name="Donuts" type="Sprite2D" parent="." unique_id=1523323530]
+position = Vector2(526, 187)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("7_1sijj")
+
+[node name="HibiscusJuice" type="Sprite2D" parent="." unique_id=2096942402]
+position = Vector2(929, 190)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_u1ary")
+
+[node name="MangoJuice" type="Sprite2D" parent="." unique_id=836106778]
+position = Vector2(803.00006, 186.22498)
+scale = Vector2(0.3, 0.28198925)
+texture = ExtResource("9_qujyy")
+
+[node name="Pollen" type="Sprite2D" parent="." unique_id=561990672]
+position = Vector2(662, 189)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_u1ary")
+
+[node name="Player" parent="." unique_id=1291735271 instance=ExtResource("2_iw0ck")]
+position = Vector2(484, 477)

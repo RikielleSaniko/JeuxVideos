@@ -71,7 +71,7 @@ texture = ExtResource("4_rwm3f")
 position = Vector2(461.66666, 716.6666)
 texture = ExtResource("5_u1ary")
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Furniture/Table2" unique_id=2036411011]
+[node name="CollisionTable2" type="CollisionPolygon2D" parent="Furniture/Table2" unique_id=2036411011]
 position = Vector2(5, 0)
 build_mode = 1
 polygon = PackedVector2Array(393.3333, 503.3333, 515, 513.3333, 536.6666, 630, 565, 780, 493.3333, 901.6666, 418.3333, 910, 368.3333, 771.6666, 356.66666, 613.3333, 356.66666, 613.3333)
@@ -103,7 +103,7 @@ position = Vector2(397, 666)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("5_u1ary")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/Table3" unique_id=885496068]
+[node name="CollisionTable3" type="CollisionPolygon2D" parent="Furniture/Table3" unique_id=885496068]
 build_mode = 1
 polygon = PackedVector2Array(360, 536, 427, 533, 443, 611, 450, 641, 485, 644, 505, 606, 508, 702, 455, 689, 425, 785, 382, 790, 342, 692, 340, 699, 307, 667, 297, 699, 292, 604, 340, 639)
 
@@ -147,7 +147,6 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("6_0duca")
 
 [node name="chair2" type="Sprite2D" parent="Furniture/Table5" unique_id=1694008118]
-visible = false
 position = Vector2(1169, 677)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("5_qujyy")
@@ -157,7 +156,7 @@ position = Vector2(1088, 682)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("5_u1ary")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/Table5" unique_id=475643391]
+[node name="CollisionTable5" type="CollisionPolygon2D" parent="Furniture/Table5" unique_id=475643391]
 build_mode = 1
 polygon = PackedVector2Array(1038, 616, 1136, 621, 1146, 654, 1178, 654, 1198, 626, 1196, 727, 1173, 694, 1143, 689, 1136, 734, 1048, 732, 1020, 687, 987, 687, 980, 707, 975, 624, 992, 644, 1033, 654)
 

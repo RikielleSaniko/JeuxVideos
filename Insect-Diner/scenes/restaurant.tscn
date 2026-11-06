@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b1vk0r2dse3dl"]
 
+[ext_resource type="Script" uid="uid://c7o7rpcqumrhx" path="res://scripts/restaurant.gd" id="1_0duca"]
 [ext_resource type="Texture2D" uid="uid://krh3lj23xlx" path="res://assets/sprites/salle_fond.png" id="1_tdg2f"]
 [ext_resource type="PackedScene" uid="uid://cjbxaxs8lj7o1" path="res://scenes/player.tscn" id="2_iw0ck"]
 [ext_resource type="Texture2D" uid="uid://b7257f8ia82ik" path="res://assets/sprites/chaise_face_01.png" id="3_bp8vj"]
@@ -13,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cq7nwf17lggm5" path="res://assets/sprites/couscous_legumes_3.png" id="9_u1ary"]
 
 [node name="Restaurant" type="Node2D" unique_id=109098720]
+script = ExtResource("1_0duca")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=929448636]
 texture = ExtResource("1_tdg2f")
@@ -184,3 +186,15 @@ texture = ExtResource("9_u1ary")
 
 [node name="Player" parent="." unique_id=1291735271 instance=ExtResource("2_iw0ck")]
 position = Vector2(484, 477)
+
+[node name="EntrancePoint" type="Marker2D" parent="." unique_id=325299056]
+position = Vector2(758, 964)
+
+[node name="WaitingPoint" type="Marker2D" parent="." unique_id=253888493]
+position = Vector2(432, 331)
+
+[node name="CustomerTimer" type="Timer" parent="." unique_id=825423729]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="CustomerTimer" to="." method="_on_customer_timer_timeout"]

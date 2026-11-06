@@ -191,7 +191,7 @@ position = Vector2(484, 477)
 position = Vector2(758, 964)
 
 [node name="WaitingPoint" type="Marker2D" parent="." unique_id=253888493]
-position = Vector2(432, 331)
+position = Vector2(585, 695)
 
 [node name="CustomerTimer" type="Timer" parent="." unique_id=825423729]
 wait_time = 5.0

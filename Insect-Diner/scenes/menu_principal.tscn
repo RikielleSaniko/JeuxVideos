@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dbkvmfe010u3g" path="res://assets/sprites/Image_menu_principal.png" id="1_i85hu"]
 [ext_resource type="FontFile" uid="uid://dk7p7nm6xmah4" path="res://assets/fonts/TitanOne-Regular.ttf" id="1_w5ui5"]
+[ext_resource type="Script" uid="uid://dqmvlifv8pj00" path="res://scripts/menu_principal.gd" id="2_qcl6i"]
 [ext_resource type="Texture2D" uid="uid://c12qtoc8y4cdl" path="res://assets/sprites/bouton_normal.png" id="3_qcl6i"]
 [ext_resource type="Texture2D" uid="uid://b1vp4x8vwyxiy" path="res://assets/sprites/bouton_appuye.png" id="4_nxt0m"]
 [ext_resource type="Texture2D" uid="uid://ctfv0pfw5oanr" path="res://assets/sprites/bouton_survol.png" id="5_2xgxd"]
@@ -18,6 +19,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_o3byh")
+script = ExtResource("2_qcl6i")
 
 [node name="Fond" type="TextureRect" parent="." unique_id=416764026]
 layout_mode = 1
@@ -38,13 +40,14 @@ offset_right = 953.0
 offset_bottom = 600.0
 theme_override_constants/separation = 20
 
-[node name="Jouer" type="TextureButton" parent="Fond/Boutons" unique_id=758168775]
+[node name="StartButton" type="TextureButton" parent="Fond/Boutons" unique_id=758168775]
+unique_name_in_owner = true
 layout_mode = 2
 texture_normal = ExtResource("3_qcl6i")
 texture_pressed = ExtResource("4_nxt0m")
 texture_hover = ExtResource("5_2xgxd")
 
-[node name="Label" type="Label" parent="Fond/Boutons/Jouer" unique_id=2111112550]
+[node name="Label" type="Label" parent="Fond/Boutons/StartButton" unique_id=2111112550]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -57,13 +60,14 @@ text = "Jouer"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Options" type="TextureButton" parent="Fond/Boutons" unique_id=1164563331]
+[node name="OptionsButton" type="TextureButton" parent="Fond/Boutons" unique_id=1164563331]
+unique_name_in_owner = true
 layout_mode = 2
 texture_normal = ExtResource("3_qcl6i")
 texture_pressed = ExtResource("4_nxt0m")
 texture_hover = ExtResource("5_2xgxd")
 
-[node name="Label" type="Label" parent="Fond/Boutons/Options" unique_id=722315234]
+[node name="Label" type="Label" parent="Fond/Boutons/OptionsButton" unique_id=722315234]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -76,13 +80,14 @@ text = "Options"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Quitter" type="TextureButton" parent="Fond/Boutons" unique_id=118742427]
+[node name="QuitButton" type="TextureButton" parent="Fond/Boutons" unique_id=118742427]
+unique_name_in_owner = true
 layout_mode = 2
 texture_normal = ExtResource("3_qcl6i")
 texture_pressed = ExtResource("4_nxt0m")
 texture_hover = ExtResource("5_2xgxd")
 
-[node name="Label" type="Label" parent="Fond/Boutons/Quitter" unique_id=306442096]
+[node name="Label" type="Label" parent="Fond/Boutons/QuitButton" unique_id=306442096]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

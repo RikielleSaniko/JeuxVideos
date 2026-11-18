@@ -167,6 +167,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
 size = Vector2(40, 16)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6yevk"]
+radius = 60.0
+
 [node name="Player" type="CharacterBody2D" unique_id=1291735271]
 texture_filter = 1
 script = ExtResource("1_g2els")
@@ -180,3 +183,8 @@ frame_progress = 0.9148921
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1831985376]
 position = Vector2(0, 52)
 shape = SubResource("RectangleShape2D_dqkch")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=436895285]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1871096426]
+shape = SubResource("CircleShape2D_6yevk")

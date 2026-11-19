@@ -3,9 +3,11 @@ extends CharacterBody2D
 @export var max_speed: float = 300.0
 @export var acceleration: float = 10.0
 @onready var interaction_area : Area2D = $InteractionArea
+@onready var carried_dish_sprite : Sprite2D = $CarriedDish
 var following_customer : Customer = null
+var carried_dish : String = ""
 
-var last_direction = Vector2.DOWN
+var last_direction : Vector2 = Vector2.DOWN
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -22,9 +24,7 @@ func interact_with_closest() -> void:
 	var closest_distance : float = INF
 
 	for candidate in candidates:
-		if !candidate.has_method("interact"):
-			continue
-		if candidate == following_customer:
+		if !candidate.has_method("can_interact") or !candidate.can_interact(self):
 			continue
 		var distance := global_position.distance_to(candidate.global_position)
 		if distance < closest_distance:
@@ -35,8 +35,8 @@ func interact_with_closest() -> void:
 		closest.interact(self)
 
 
-func _physics_process(delta):
-	var direction = Input.get_vector("left", "right", "up", "down").normalized()
+func _physics_process(delta : float) -> void:
+	var direction : Vector2 = Input.get_vector("left", "right", "up", "down").normalized()
 
 	if direction.length() > 0:
 		velocity = velocity.lerp(direction * max_speed, acceleration * delta)
@@ -49,7 +49,7 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-func update_animation(direction):
+func update_animation(direction : Vector2) -> void:
 	if direction == Vector2.ZERO: 
 		match last_direction:
 			Vector2.RIGHT: $AnimatedSprite2D.play("idle_right")
@@ -70,3 +70,12 @@ func update_animation(direction):
 		Vector2.LEFT: $AnimatedSprite2D.play("walk_left")
 		Vector2.DOWN: $AnimatedSprite2D.play("walk_down")
 		Vector2.UP: $AnimatedSprite2D.play("walk_up")
+
+func take_dish(dish_name, texture) -> void :
+	carried_dish = dish_name
+	carried_dish_sprite.texture = texture
+	carried_dish_sprite.visible = true
+
+func drop_dish() -> void:
+	carried_dish = ""
+	carried_dish_sprite.visible = false

@@ -18,3 +18,7 @@ func interact(player) -> void:
 
 	player.following_customer.assign_chair(chair)
 	player.following_customer = null
+
+#la table réagit seulement si player guide un client et qu'il reste une chaise vide
+func can_interact(player) -> bool:
+	return player.following_customer != null and get_free_chair() != null

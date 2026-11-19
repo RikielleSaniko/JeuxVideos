@@ -168,7 +168,7 @@ animations = [{
 size = Vector2(40, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6yevk"]
-radius = 60.0
+radius = 80.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1291735271]
 texture_filter = 1
@@ -188,3 +188,7 @@ shape = SubResource("RectangleShape2D_dqkch")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1871096426]
 shape = SubResource("CircleShape2D_6yevk")
+
+[node name="CarriedDish" type="Sprite2D" parent="." unique_id=183556761]
+position = Vector2(0, -60)
+scale = Vector2(0.2, 0.2)

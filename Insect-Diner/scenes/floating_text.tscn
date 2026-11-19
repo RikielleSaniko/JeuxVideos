@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://jmxru1bxv58x"]
+
+[ext_resource type="Script" uid="uid://by0t4ebab5lku" path="res://scripts/floating_text.gd" id="1_58iww"]
+
+[node name="FloatingText" type="Label" unique_id=1330397882]
+theme_override_colors/font_color = Color(1, 1, 0.22745098, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 30
+text = "+10"
+script = ExtResource("1_58iww")

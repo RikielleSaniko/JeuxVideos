@@ -14,7 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://t8nieiviaxp5" path="res://assets/sprites/jus_bissap_2.png" id="8_u1ary"]
 [ext_resource type="Texture2D" uid="uid://cht4s55ujpwnv" path="res://assets/sprites/jus_mangue_1.png" id="9_qujyy"]
 [ext_resource type="Texture2D" uid="uid://cq7nwf17lggm5" path="res://assets/sprites/couscous_legumes_3.png" id="9_u1ary"]
+[ext_resource type="Script" uid="uid://frjmc3e2en0" path="res://scripts/dish.gd" id="12_4dltu"]
 [ext_resource type="Script" uid="uid://icds4x3wcqmx" path="res://scripts/path_grid.gd" id="15_jruaf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6yevk"]
+size = Vector2(251.66672, 303.3333)
 
 [node name="Restaurant" type="Node2D" unique_id=109098720]
 script = ExtResource("1_0duca")
@@ -230,6 +234,14 @@ polygon = PackedVector2Array(1038, 616, 1136, 621, 1146, 654, 1178, 654, 1198, 6
 position = Vector2(526, 187)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("7_1sijj")
+script = ExtResource("12_4dltu")
+dish_name = "honey_donuts"
+
+[node name="Area2D" type="Area2D" parent="Donuts" unique_id=1485482478]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Donuts/Area2D" unique_id=773114635]
+position = Vector2(-26.666626, 50)
+shape = SubResource("RectangleShape2D_6yevk")
 
 [node name="HibiscusJuice" type="Sprite2D" parent="." unique_id=2096942402]
 position = Vector2(929, 190)
@@ -258,5 +270,15 @@ position = Vector2(585, 695)
 [node name="CustomerTimer" type="Timer" parent="." unique_id=825423729]
 wait_time = 5.0
 autostart = true
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1488677580]
+
+[node name="MoneyLabel" type="Label" parent="HUD" unique_id=1032824328]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 0.95686275, 0.8627451, 1)
+theme_override_colors/font_outline_color = Color(0.2901961, 0.13333334, 0.03137255, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
 
 [connection signal="timeout" from="CustomerTimer" to="." method="_on_customer_timer_timeout"]

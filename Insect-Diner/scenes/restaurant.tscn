@@ -16,6 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://cq7nwf17lggm5" path="res://assets/sprites/couscous_legumes_3.png" id="9_u1ary"]
 [ext_resource type="Script" uid="uid://frjmc3e2en0" path="res://scripts/dish.gd" id="12_4dltu"]
 [ext_resource type="Script" uid="uid://icds4x3wcqmx" path="res://scripts/path_grid.gd" id="15_jruaf"]
+[ext_resource type="Script" uid="uid://brokyiw01e31w" path="res://scripts/pause_menu.gd" id="17_kmuv4"]
+[ext_resource type="Texture2D" uid="uid://c12qtoc8y4cdl" path="res://assets/sprites/bouton_normal.png" id="17_n8gan"]
+[ext_resource type="Texture2D" uid="uid://b1vp4x8vwyxiy" path="res://assets/sprites/bouton_appuye.png" id="18_kmuv4"]
+[ext_resource type="Texture2D" uid="uid://ctfv0pfw5oanr" path="res://assets/sprites/bouton_survol.png" id="19_00r41"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6yevk"]
 size = Vector2(251.66672, 303.3333)
@@ -324,5 +328,69 @@ theme_override_colors/font_outline_color = Color(0.2901961, 0.13333334, 0.031372
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 32
 text = "0/3"
+
+[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=140860739]
+process_mode = 3
+layer = 10
+visible = false
+script = ExtResource("17_kmuv4")
+
+[node name="Shade" type="ColorRect" parent="PauseMenu" unique_id=2091148391]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5019608)
+
+[node name="TitleLabel" type="Label" parent="PauseMenu" unique_id=522638577]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Buttons" type="VBoxContainer" parent="PauseMenu" unique_id=1860508155]
+offset_left = 528.0
+offset_top = 400.0
+offset_right = 1008.0
+offset_bottom = 574.0
+
+[node name="ResumeButton" type="TextureButton" parent="PauseMenu/Buttons" unique_id=1190480847]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("17_n8gan")
+texture_pressed = ExtResource("18_kmuv4")
+texture_hover = ExtResource("19_00r41")
+
+[node name="Label" type="Label" parent="PauseMenu/Buttons/ResumeButton" unique_id=338733117]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.23137255, 0.101960786, 0.03137255, 1)
+theme_override_font_sizes/font_size = 34
+text = "Reprendre"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuButton" type="TextureButton" parent="PauseMenu/Buttons" unique_id=1602596447]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("17_n8gan")
+texture_pressed = ExtResource("18_kmuv4")
+texture_hover = ExtResource("19_00r41")
+
+[node name="Label" type="Label" parent="PauseMenu/Buttons/MenuButton" unique_id=127743310]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.23137255, 0.101960786, 0.03137255, 1)
+theme_override_font_sizes/font_size = 34
+text = "Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="CustomerTimer" to="." method="_on_customer_timer_timeout"]

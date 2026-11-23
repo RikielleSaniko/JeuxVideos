@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://db2jx2u3tn5rj"]
+
+[ext_resource type="Texture2D" uid="uid://krh3lj23xlx" path="res://assets/sprites/salle_fond.png" id="1_87vmq"]
+[ext_resource type="Script" uid="uid://cwk8hac5g4xt" path="res://scripts/end_screen.gd" id="1_g44xs"]
+[ext_resource type="Texture2D" uid="uid://c12qtoc8y4cdl" path="res://assets/sprites/bouton_normal.png" id="2_g44xs"]
+[ext_resource type="Texture2D" uid="uid://b1vp4x8vwyxiy" path="res://assets/sprites/bouton_appuye.png" id="3_vj8vg"]
+[ext_resource type="Texture2D" uid="uid://ctfv0pfw5oanr" path="res://assets/sprites/bouton_survol.png" id="4_plosh"]
+
+[node name="EndScreen" type="Control" unique_id=1473598428]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g44xs")
+
+[node name="Background" type="TextureRect" parent="." unique_id=907543098]
+layout_mode = 1
+offset_right = 1672.0
+offset_bottom = 941.0
+texture = ExtResource("1_87vmq")
+
+[node name="Shade" type="ColorRect" parent="." unique_id=1521450569]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5019608)
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1404399247]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 368.0
+offset_top = 170.0
+offset_right = 1168.0
+offset_bottom = 270.0
+
+[node name="MessageLabel" type="Label" parent="." unique_id=616168725]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 368.0
+offset_top = 290.0
+offset_right = 1168.0
+offset_bottom = 340.0
+
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=631250433]
+layout_mode = 0
+offset_left = 528.0
+offset_top = 400.0
+offset_right = 1008.0
+offset_bottom = 485.0
+theme_override_constants/separation = 20
+
+[node name="NextLevelButton" type="TextureButton" parent="Buttons" unique_id=555742992]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("2_g44xs")
+texture_pressed = ExtResource("3_vj8vg")
+texture_hover = ExtResource("4_plosh")
+
+[node name="Label" type="Label" parent="Buttons/NextLevelButton" unique_id=1778176889]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.23137255, 0.101960786, 0.03137255, 1)
+theme_override_font_sizes/font_size = 34
+text = "Niveau suivant"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="TextureButton" parent="Buttons" unique_id=1978294474]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("2_g44xs")
+texture_pressed = ExtResource("3_vj8vg")
+texture_hover = ExtResource("4_plosh")
+
+[node name="Label" type="Label" parent="Buttons/RestartButton" unique_id=728727572]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.23137255, 0.101960786, 0.03137255, 1)
+theme_override_font_sizes/font_size = 34
+text = "Redémarrer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuButton" type="TextureButton" parent="Buttons" unique_id=1062109290]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("2_g44xs")
+texture_pressed = ExtResource("3_vj8vg")
+texture_hover = ExtResource("4_plosh")
+
+[node name="Label" type="Label" parent="Buttons/MenuButton" unique_id=1684425164]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.23137255, 0.101960786, 0.03137255, 1)
+theme_override_font_sizes/font_size = 34
+text = "Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitButton" type="TextureButton" parent="Buttons" unique_id=1767955125]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("2_g44xs")
+texture_pressed = ExtResource("3_vj8vg")
+texture_hover = ExtResource("4_plosh")
+
+[node name="Label" type="Label" parent="Buttons/QuitButton" unique_id=1872220914]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.23137255, 0.101960786, 0.03137255, 1)
+theme_override_font_sizes/font_size = 34
+text = "Quitter"
+horizontal_alignment = 1
+vertical_alignment = 1

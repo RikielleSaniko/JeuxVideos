@@ -8,6 +8,7 @@ var time_left : float = 0.0
 var is_day_over = false
 const CUSTOMER_SCENE = preload("res://scenes/client.tscn")
 const FLOATING_TEXT_SCENE = preload("res://scenes/floating_text.tscn")
+const END_SCENE : String = "res://scenes/end_screen.tscn"
 const WAITING_SPACING = 70.0
 
 const CUSTOMER_TYPES = {
@@ -112,7 +113,8 @@ func end_day(won : bool) -> void:
 	customer_timer.stop()
 	GameState.last_won = won
 	GameState.last_money = money
-	if won:
-		print("Victoire")
-	else:
-		print("défaite")
+	get_tree().change_scene_to_file(END_SCENE)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("end_game"):
+		end_day(money >= level["goal"])

@@ -84,6 +84,7 @@ func play_animation(anim_name : String, flipped : bool = false) -> void:
 	animated_sprite.flip_h = flipped
 	
 	if !animated_sprite.sprite_frames.has_animation(anim_name):
+		print("animation introuvable : ", anim_name) # AJOUTÉ
 		return
 	
 	if animated_sprite.animation == anim_name and animated_sprite.is_playing():
@@ -106,6 +107,7 @@ func interact(player) -> void:
 	if is_waiting_for_dish:
 		if player.carried_dish == favorite_dish:
 			hide_order()
+			hide_patience()
 			is_waiting_for_dish = false
 			is_served = true
 			player.drop_dish()
@@ -134,6 +136,7 @@ func sit_on_chair() -> void:
 	show_behind_parent = assigned_chair.orientation == Chair.Facing.BACK
 	show_seated(assigned_chair.orientation)
 	show_order()
+	reset_patience()
 
 func show_seated(orientation : int) -> void:
 	match orientation:
@@ -158,6 +161,8 @@ func pay() -> void:
 	paid.emit(price, global_position)
 
 func stand_up() -> void:
+	if !assigned_chair:
+		return
 	assigned_chair.customer = null
 	reparent(original_parent)
 	show_behind_parent = false

@@ -20,6 +20,18 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6yevk"]
 size = Vector2(251.66672, 303.3333)
 
+[sub_resource type="Theme" id="Theme_anm1k"]
+Label/constants/outline_size = 4
+Label/font_sizes/font_size = 22
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6yevk"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0, 0, 0, 0.5882353)
+corner_detail = 10
+
 [node name="Restaurant" type="Node2D" unique_id=109098720]
 script = ExtResource("1_0duca")
 
@@ -42,7 +54,11 @@ build_mode = 1
 polygon = PackedVector2Array(1342, 816, 1319, 196, 1111, 176, 1113, 239, 355, 231, 358, 168, 322, 161, 322, 224, 202, 206, 152, 231, 154, 309, 194, 329, 194, 402, 144, 409, 144, 673, 222, 706, 209, 814, 66, 836, 245, 819, 611, 824, 614, 972, 940, 982, 932, 831)
 
 [node name="PathGrid" type="Node2D" parent="." unique_id=329255892]
+visible = false
 script = ExtResource("15_jruaf")
+
+[node name="Player" parent="." unique_id=1291735271 instance=ExtResource("2_iw0ck")]
+position = Vector2(484, 477)
 
 [node name="Furniture" type="Node2D" parent="." unique_id=2096423342]
 
@@ -258,9 +274,6 @@ position = Vector2(662, 189)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("9_u1ary")
 
-[node name="Player" parent="." unique_id=1291735271 instance=ExtResource("2_iw0ck")]
-position = Vector2(484, 477)
-
 [node name="EntrancePoint" type="Marker2D" parent="." unique_id=325299056]
 position = Vector2(758, 964)
 
@@ -273,12 +286,43 @@ autostart = true
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1488677580]
 
-[node name="MoneyLabel" type="Label" parent="HUD" unique_id=1032824328]
+[node name="HudPanel" type="PanelContainer" parent="HUD" unique_id=1157958408]
 offset_right = 40.0
-offset_bottom = 23.0
+offset_bottom = 40.0
+theme = SubResource("Theme_anm1k")
+theme_override_styles/panel = SubResource("StyleBoxFlat_6yevk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/HudPanel" unique_id=736378557]
+layout_mode = 2
+
+[node name="LevelLabel" type="Label" parent="HUD/HudPanel/VBoxContainer" unique_id=1697086349]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.95686275, 0.8627451, 1)
+theme_override_colors/font_outline_color = Color(0.2901961, 0.13333334, 0.03137255, 1)
+theme_override_font_sizes/font_size = 32
+text = "Niveau 1
+"
+
+[node name="TimeLabel" type="Label" parent="HUD/HudPanel/VBoxContainer" unique_id=344011071]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.95686275, 0.8627451, 1)
+theme_override_colors/font_outline_color = Color(0.2901961, 0.13333334, 0.03137255, 1)
+theme_override_font_sizes/font_size = 32
+text = "1:45"
+
+[node name="MoneyLabel" type="Label" parent="HUD/HudPanel/VBoxContainer" unique_id=1032824328]
+layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.95686275, 0.8627451, 1)
 theme_override_colors/font_outline_color = Color(0.2901961, 0.13333334, 0.03137255, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 32
+
+[node name="LostLabel" type="Label" parent="HUD/HudPanel/VBoxContainer" unique_id=1374552661]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.95686275, 0.8627451, 1)
+theme_override_colors/font_outline_color = Color(0.2901961, 0.13333334, 0.03137255, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+text = "0/3"
 
 [connection signal="timeout" from="CustomerTimer" to="." method="_on_customer_timer_timeout"]

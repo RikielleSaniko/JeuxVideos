@@ -8,7 +8,7 @@ const EAT_TIME : float = 4.0
 var time_left : float = 0.0
 
 func enter() -> void:
-	if customer.assign_chair.orientation == Chair.Facing.FRONT;
+	if customer.assigned_chair.orientation == Chair.Facing.FRONT:
 		customer.play_animation("eat")
 	time_left = EAT_TIME
 

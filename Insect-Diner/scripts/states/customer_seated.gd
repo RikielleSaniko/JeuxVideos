@@ -9,3 +9,7 @@ func enter() -> void:
 func physics_update(delta: float) -> void:
 	if customer.is_served:
 		Transitioned.emit(self, "CustomerEating")
+		return
+
+	if customer.lose_patience(delta):
+		Transitioned.emit(self, "CustomerAngry")

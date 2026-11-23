@@ -4,10 +4,15 @@ class_name Dish
 @export var dish_name : String = ""
 
 func interact(player) -> void:
+
+	if player.carried_dish == dish_name:
+		player.drop_dish()
+		return
+		
 	if player.carried_dish != "":
 		return
 	player.take_dish(dish_name, texture)
 
 # prendre un plat seulement si player a les mains vides
 func can_interact(player) -> bool:
-	return player.carried_dish == ""
+	return player.carried_dish == "" or player.carried_dish == dish_name

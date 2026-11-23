@@ -12,6 +12,15 @@
 [ext_resource type="Texture2D" uid="uid://mgus2chlnhvp" path="res://assets/sprites/clients/orderBubble.png" id="10_dueaf"]
 [ext_resource type="Script" uid="uid://1x5xl6lq2rq0" path="res://scripts/states/customer_eating.gd" id="10_ik056"]
 [ext_resource type="Texture2D" uid="uid://bs66y6e14jc12" path="res://assets/sprites/beignets_miel_3.png" id="11_ik056"]
+[ext_resource type="Script" uid="uid://dvi7c0v7kvgn" path="res://scripts/states/customer_angry.gd" id="11_ta3x6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oaus0"]
+atlas = ExtResource("1_5f806")
+region = Rect2(480, 840, 160, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61el2"]
+atlas = ExtResource("1_5f806")
+region = Rect2(640, 840, 160, 280)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8n8j7"]
 atlas = ExtResource("1_5f806")
@@ -97,6 +106,17 @@ region = Rect2(960, 0, 160, 280)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_oaus0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61el2")
+}],
+"loop": 1,
+"name": &"angry",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_8n8j7")
 }, {
 "duration": 1.0,
@@ -104,7 +124,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"eat",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -207,7 +227,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6yevk"]
-size = Vector2(70, 118)
+size = Vector2(60, 118)
 
 [node name="Customer" type="Node2D" unique_id=1520491375]
 script = ExtResource("1_4tr0r")
@@ -215,8 +235,7 @@ script = ExtResource("1_4tr0r")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=479924488]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_6yevk")
-animation = &"eat"
-frame_progress = 0.119490795
+animation = &"walk_down"
 offset = Vector2(0, -140)
 
 [node name="StateMachine" type="Node" parent="." unique_id=1357207707 node_paths=PackedStringArray("initial_state")]
@@ -251,6 +270,10 @@ customer = NodePath("../..")
 script = ExtResource("10_ik056")
 customer = NodePath("../..")
 
+[node name="CustomerAngry" type="Node" parent="StateMachine" unique_id=821433622 node_paths=PackedStringArray("customer")]
+script = ExtResource("11_ta3x6")
+customer = NodePath("../..")
+
 [node name="InteractionZone" type="Area2D" parent="." unique_id=874222048]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionZone" unique_id=471562049]
@@ -267,3 +290,12 @@ texture = ExtResource("10_dueaf")
 [node name="DishIcon" type="Sprite2D" parent="OrderBubble" unique_id=1412505910]
 scale = Vector2(2, 2)
 texture = ExtResource("11_ik056")
+
+[node name="PatienceBar" type="ProgressBar" parent="." unique_id=58298233]
+visible = false
+z_index = 10
+offset_left = -30.0
+offset_top = -150.0
+offset_right = 30.0
+offset_bottom = -142.0
+show_percentage = false

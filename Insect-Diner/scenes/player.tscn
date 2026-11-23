@@ -168,7 +168,7 @@ animations = [{
 size = Vector2(40, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6yevk"]
-radius = 80.0
+radius = 60.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1291735271]
 texture_filter = 1
